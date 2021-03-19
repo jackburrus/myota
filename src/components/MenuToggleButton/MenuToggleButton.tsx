@@ -8,6 +8,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
+  withTiming,
 } from "react-native-reanimated";
 
 import Box from "../../theme/Box";
@@ -21,19 +22,25 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
   const { drawerNavigation } = props;
   const isDrawerOpen = useIsDrawerOpen();
   const offSetX = useSharedValue(10);
+  const scaleValue = useSharedValue(1);
 
   const style = useAnimatedStyle(() => {
     return {
-      left: offSetX.value,
+      transform: [{ scale: scaleValue.value }],
     };
   });
 
   useEffect(() => {
     if (isDrawerOpen) {
-      offSetX.value = withSpring(80);
+      scaleValue.value = withTiming(0);
     } else {
-      offSetX.value = withSpring(10);
+      scaleValue.value = withTiming(1);
     }
+    // if (isDrawerOpen) {
+    //   offSetX.value = withSpring(80);
+    // } else {
+    //   offSetX.value = withSpring(10);
+    // }
   }, [isDrawerOpen]);
 
   return (
@@ -42,10 +49,10 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
         style,
         {
           position: "absolute",
+          zIndex: isDrawerOpen ? 1 : 0,
+          top: Constants.statusBarHeight + 10,
 
-          top: Constants.statusBarHeight,
-
-          // left: isDrawerOpen ? 80 : 10,
+          left: 15,
         },
       ]}
     >

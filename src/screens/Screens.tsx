@@ -21,7 +21,7 @@ const Screens = () => {
         drawerStyle={{
           backgroundColor: "#25395F",
           width: 70,
-          zIndex: 0,
+          zIndex: 1,
           // justifyContent: "center",
           // alignItems: "center",
         }}

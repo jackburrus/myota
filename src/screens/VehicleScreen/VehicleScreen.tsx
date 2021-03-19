@@ -15,6 +15,7 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
       backgroundColor="primaryDark"
     >
       <Text>VehicleScreen</Text>
+
       <MenuToggleButton drawerNavigation={navigation} />
     </Box>
   );
