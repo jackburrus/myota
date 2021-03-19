@@ -11,7 +11,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
       flex={1}
       justifyContent={"center"}
       alignItems={"center"}
-      borderWidth={5}
+      backgroundColor="primaryDark"
     >
       <Text>Wallet</Text>
       <MenuToggleButton drawerNavigation={navigation} />

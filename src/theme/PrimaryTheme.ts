@@ -11,12 +11,17 @@ const palette = {
 
   black: "#0B0B0B",
   white: "#F0F2F3",
+
+  primaryDark: "#1B2D4B",
+  primaryLight: "#25395F",
+  accent: "#108CFF",
 };
 
 const PrimaryTheme = createTheme({
   colors: {
-    mainBackground: palette.white,
-    cardPrimaryBackground: palette.purplePrimary,
+    primaryDark: palette.primaryDark,
+    primaryLight: palette.primaryLight,
+    accent: palette.accent,
   },
   spacing: {
     s: 8,
