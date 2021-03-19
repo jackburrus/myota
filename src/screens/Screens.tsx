@@ -1,16 +1,16 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
 
-import WalletScreen from "./WalletScreen/WalletScreen";
-import VehicleScreen from "./VehicleScreen/VehicleScreen";
+import MenuToggleButton from "../components/MenuToggleButton/MenuToggleButton";
 
-interface ScreensProps {}
+import { RouteTypes } from "./routeTypes";
 
-const Drawer = createDrawerNavigator();
+import { WalletScreen, VehicleScreen } from "./index";
 
-const Screens = (props: ScreensProps) => {
+const Drawer = createDrawerNavigator<RouteTypes>();
+
+const Screens = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
