@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import React from "react";
 import { View } from "moti";
+import { SafeAreaView } from "react-native";
 
 import MenuToggleButton from "../components/MenuToggleButton/MenuToggleButton";
 import { CustomDrawerContent } from "../navigation/CustomDrawerContent";

@@ -13,6 +13,7 @@ import Animated, {
 
 import Box from "../../theme/Box";
 import FlyIcon from "../FlyIcon/FlyIcon";
+import { device } from "../../constants";
 
 interface MenuToggleButtonProps {
   drawerNavigation: DrawerScreenProps;
@@ -50,7 +51,8 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
         {
           position: "absolute",
           zIndex: isDrawerOpen ? 1 : 0,
-          top: Constants.statusBarHeight + 10,
+          top: 0,
+          // width: device.width,
 
           left: 15,
         },
