@@ -1,21 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from "@shopify/restyle";
+import React from "react";
 
-export default function App() {
+import Screens from "./src/screens/Screens";
+import Box from "./src/theme/Box";
+import PrimaryTheme from "./src/theme/PrimaryTheme";
+import Text from "./src/theme/Text";
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Box flex={1} justifyContent={"center"} alignItems="center">
+      <Text>Hello World</Text>
+    </Box>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Root = () => {
+  return (
+    <ThemeProvider theme={PrimaryTheme}>
+      <Screens />
+    </ThemeProvider>
+  );
+};
+
+export default Root;
