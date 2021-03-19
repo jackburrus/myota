@@ -1,5 +1,6 @@
 import React from "react";
 
+import { VehicleMap } from "../../components";
 import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
 import Box from "../../theme/Box";
 import Text from "../../theme/Text";
@@ -14,7 +15,7 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
       flex={1}
       backgroundColor="primaryDark"
     >
-      <Text>VehicleScreen</Text>
+      <VehicleMap />
 
       <MenuToggleButton drawerNavigation={navigation} />
     </Box>
