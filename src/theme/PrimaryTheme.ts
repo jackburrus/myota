@@ -13,6 +13,7 @@ const palette = {
   white: "#F0F2F3",
 
   primaryDark: "#1B2D4B",
+  primaryMid: "#213356",
   primaryLight: "#25395F",
   accent: "#108CFF",
   lineColor: "#8699BB",
@@ -23,6 +24,7 @@ const palette = {
 const PrimaryTheme = createTheme({
   colors: {
     primaryDark: palette.primaryDark,
+    primaryMid: palette.primaryMid,
     primaryLight: palette.primaryLight,
     accent: palette.accent,
     lineColor: palette.lineColor,

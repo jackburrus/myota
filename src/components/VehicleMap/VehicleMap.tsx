@@ -14,18 +14,18 @@ export const VehicleMap = (props: VehicleMapProps) => {
       style={{ width: device.width - 50, height: 200 }}
       provider={PROVIDER_GOOGLE}
       customMapStyle={CUSTOM_MAP}
-      // onRegionChangeComplete={(res) => console.log(res)}
+      onRegionChangeComplete={(res) => console.log(res)}
       initialRegion={{
-        latitude: 34.537142608229715,
-        latitudeDelta: 0.10544141398184337,
-        longitude: 69.191691018641,
-        longitudeDelta: 0.21760091185569763,
+        latitude: 34.538787054668546,
+        latitudeDelta: 0.007070239134421286,
+        longitude: 69.19399034231901,
+        longitudeDelta: 0.016222000122070312,
       }}
     >
       <Marker
         coordinate={{
-          latitude: 34.537142608229715,
-          longitude: 69.191691018641,
+          latitude: 34.538787054668546,
+          longitude: 69.19567845761776,
         }}
         image={car}
       />

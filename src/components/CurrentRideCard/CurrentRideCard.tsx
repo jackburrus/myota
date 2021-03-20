@@ -2,6 +2,8 @@ import React from "react";
 import { ImageSourcePropType } from "react-native";
 import { Entypo, FontAwesome, Feather } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
+import { Rating } from "react-native-ratings";
+import { white } from "react-native-paper/lib/typescript/styles/colors";
 
 import { device } from "../../constants";
 import Box from "../../theme/Box";
@@ -26,6 +28,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
     accent,
     successGreen,
     neutralYellow,
+    white,
   } = theme.colors;
   const {
     riderAvatar,
@@ -70,7 +73,19 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
           paddingLeft={"l"}
           flexDirection={"row"}
         >
-          <Text variant={"whiteText"}>{name}</Text>
+          <Box>
+            <Text variant={"whiteText"}>{name}</Text>
+            <Rating
+              type={"custom"}
+              ratingBackgroundColor={lineColor}
+              tintColor={primaryLight}
+              imageSize={15}
+              ratingColor={neutralYellow}
+              //   onFinishRating={this.ratingCompleted}
+              style={{ marginTop: 5 }}
+            />
+          </Box>
+
           <Box
             flexDirection={"row"}
             flex={0.5}
@@ -80,7 +95,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
             <Box
               height={35}
               width={35}
-              backgroundColor={"primaryDark"}
+              backgroundColor={"primaryMid"}
               borderRadius={10}
               justifyContent={"center"}
               alignItems={"center"}
@@ -90,7 +105,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
             <Box
               height={35}
               width={35}
-              backgroundColor={"primaryDark"}
+              backgroundColor={"primaryMid"}
               borderRadius={10}
               justifyContent={"center"}
               alignItems={"center"}

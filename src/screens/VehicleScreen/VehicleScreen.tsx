@@ -15,6 +15,7 @@ import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import Text from "../../theme/Text";
 import { Theme } from "../../theme/PrimaryTheme";
 import { CurrentRideCard } from "../../components/CurrentRideCard";
+import { VehicleEventsCard } from "../../components/VehicleEventsCard";
 
 interface VehicleScreenProps {}
 
@@ -113,8 +114,11 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
           startingLocation={"102 MLK Boulevard"}
           destination={"1509 Sharif Way"}
         />
-        <Box borderWidth={2} flex={1} width={device.width - 50}>
-          <Text>Car Events</Text>
+        <Box flex={1} width={device.width - 50}>
+          <Text variant={"whiteText"} marginBottom={"s"}>
+            Vehicle Events
+          </Text>
+          <VehicleEventsCard />
         </Box>
 
         <MenuToggleButton drawerNavigation={navigation} />
