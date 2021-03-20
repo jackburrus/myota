@@ -15,6 +15,7 @@ const palette = {
   primaryDark: "#1B2D4B",
   primaryLight: "#25395F",
   accent: "#108CFF",
+  lineColor: "#8699BB",
 };
 
 const PrimaryTheme = createTheme({
@@ -22,9 +23,26 @@ const PrimaryTheme = createTheme({
     primaryDark: palette.primaryDark,
     primaryLight: palette.primaryLight,
     accent: palette.accent,
+    lineColor: palette.lineColor,
+    white: palette.white,
+  },
+  textVariants: {
+    title: {
+      fontFamily: "Hind_500Medium",
+      fontSize: 14,
+      color: "lineColor",
+      height: 18,
+    },
+    whiteText: {
+      fontFamily: "Hind_600SemiBold",
+      fontSize: 16,
+      color: "white",
+      height: 20,
+    },
   },
   spacing: {
     s: 8,
+    sm: 12,
     m: 16,
     l: 24,
     xl: 40,

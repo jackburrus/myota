@@ -1,5 +1,9 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+// import { Text } from "react-native";
+
+import { AntDesign } from "@expo/vector-icons";
+import { useTheme } from "@shopify/restyle";
 
 import { VehicleMap } from "../../components";
 import Battery from "../../components/Battery/Battery";
@@ -8,10 +12,13 @@ import { device } from "../../constants";
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import Text from "../../theme/Text";
+import { Theme } from "../../theme/PrimaryTheme";
 
 interface VehicleScreenProps {}
 
 export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
+  const theme = useTheme<Theme>();
+  const { primaryLight, lineColor } = theme.colors;
   return (
     <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}>
       <Box
@@ -20,22 +27,48 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
         flex={1}
         backgroundColor="primaryDark"
       >
-        <Box marginTop={"xl"} paddingTop={"s"}>
+        <Box marginTop={"xl"} paddingTop={"s"} marginBottom={"m"}>
           <VehicleMap />
         </Box>
 
         <Box
-          borderWidth={1}
+          // borderWidth={1}
           flex={0.3}
           width={device.width - 50}
           flexDirection={"row"}
+          alignItems="center"
         >
-          <Box flex={1} borderWidth={1}>
-            <Text>Vehicle Stats</Text>
+          <Box
+            flex={1}
+            // borderWidth={1}
+            borderRadius={12}
+            backgroundColor="primaryLight"
+            height={75}
+            // justifyContent={"center"}
+            paddingTop={"s"}
+            paddingLeft={"s"}
+            flexDirection={"row"}
+            // alignItems={"center"}
+            justifyContent={"space-around"}
+          >
+            <Box>
+              <Text variant={"title"}>Vehicle Wallet</Text>
+              <Box>
+                {/* <Text>124.65 Gi</Text>
+              <Text>49,860 USD</Text> */}
+                <Text variant={"whiteText"}>124.65 Gi</Text>
+                <Text variant={"title"} fontSize={10}>
+                  49,860 USD
+                </Text>
+              </Box>
+            </Box>
+            <Box paddingTop={"sm"}>
+              <AntDesign name="qrcode" size={34} color={lineColor} />
+            </Box>
           </Box>
           <Box
             flex={1}
-            borderWidth={1}
+            // borderWidth={1}
             justifyContent={"center"}
             alignItems={"center"}
           >
