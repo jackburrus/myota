@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { Text } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
+import { Pressable } from "react-native";
 
 import { VehicleMap } from "../../components";
 import Battery from "../../components/Battery/Battery";
@@ -19,6 +20,7 @@ interface VehicleScreenProps {}
 export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
   const theme = useTheme<Theme>();
   const { primaryLight, lineColor } = theme.colors;
+  const [milesState, setMilesState] = useState("All");
   return (
     <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}>
       <Box
@@ -48,6 +50,7 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
             paddingTop={"s"}
             paddingLeft={"s"}
             flexDirection={"row"}
+            marginRight={"s"}
             // alignItems={"center"}
             justifyContent={"space-around"}
           >
@@ -69,10 +72,39 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
           <Box
             flex={1}
             // borderWidth={1}
-            justifyContent={"center"}
-            alignItems={"center"}
+            borderRadius={12}
+            backgroundColor="primaryLight"
+            height={75}
+            marginLeft={"s"}
+            // justifyContent={"center"}
+            // paddingTop={"s"}
+            paddingLeft={"s"}
+            flexDirection={"row"}
+            // alignItems={"center"}
+            justifyContent={"space-around"}
           >
-            <Battery />
+            <Box paddingTop={"s"}>
+              <Text variant={"title"}>Vehicle Stats</Text>
+              {milesState === "All" ? (
+                <Pressable onPress={() => setMilesState("Today")}>
+                  <Text variant={"whiteText"}>3462 Miles</Text>
+                  <Text variant={"title"} fontSize={10}>
+                    All Miles
+                  </Text>
+                </Pressable>
+              ) : (
+                <Pressable onPress={() => setMilesState("All")}>
+                  <Text variant={"whiteText"}>250 Miles</Text>
+                  <Text variant={"title"} fontSize={10}>
+                    24 Hour
+                  </Text>
+                </Pressable>
+              )}
+            </Box>
+
+            <Box justifyContent={"center"}>
+              <Battery />
+            </Box>
           </Box>
         </Box>
         <Box borderWidth={1.5} flex={0.5} width={device.width - 50}>
