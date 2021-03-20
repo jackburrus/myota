@@ -107,7 +107,21 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
             </Box>
           </Box>
         </Box>
-        <Box borderWidth={1.5} flex={0.5} width={device.width - 50}>
+        <Box
+          // borderWidth={1}
+          borderRadius={12}
+          backgroundColor="primaryLight"
+          // justifyContent={"center"}
+          // paddingTop={"s"}
+          paddingLeft={"s"}
+          flexDirection={"row"}
+          marginBottom={"m"}
+          marginTop={"s"}
+          // alignItems={"center"}
+          justifyContent={"space-around"}
+          flex={0.5}
+          width={device.width - 50}
+        >
           <Text>Current Ride</Text>
         </Box>
         <Box borderWidth={2} flex={1} width={device.width - 50}>
