@@ -19,6 +19,7 @@ const palette = {
   lineColor: "#8699BB",
   successGreen: "#57D087",
   neutralYellow: "#FFC962",
+  failureRed: "#FF6755",
 };
 
 const PrimaryTheme = createTheme({
@@ -31,6 +32,7 @@ const PrimaryTheme = createTheme({
     white: palette.white,
     successGreen: palette.successGreen,
     neutralYellow: palette.neutralYellow,
+    failureRed: palette.failureRed,
   },
   textVariants: {
     title: {

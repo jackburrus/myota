@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { Text } from "react-native";
 
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import { Pressable } from "react-native";
 
@@ -21,7 +21,7 @@ interface VehicleScreenProps {}
 
 export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
   const theme = useTheme<Theme>();
-  const { primaryLight, lineColor } = theme.colors;
+  const { primaryLight, lineColor, white } = theme.colors;
   const [milesState, setMilesState] = useState("All");
   return (
     <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}>
@@ -115,10 +115,45 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
           destination={"1509 Sharif Way"}
         />
         <Box flex={1} width={device.width - 50}>
-          <Text variant={"whiteText"} marginBottom={"s"}>
-            Vehicle Events
-          </Text>
-          <VehicleEventsCard />
+          <Text variant={"whiteText"}>Vehicle Events</Text>
+          <VehicleEventsCard
+            eventType={"Pothole Reported"}
+            date={"Mar 20, 2020, 13:27 am PST"}
+            price={0.215}
+            incoming
+            icon={
+              <MaterialCommunityIcons
+                name="music-rest-whole"
+                size={36}
+                color={lineColor}
+              />
+            }
+          />
+          <VehicleEventsCard
+            eventType={"Pothole Reported"}
+            date={"Mar 20, 2020, 13:27 am PST"}
+            price={0.215}
+            incoming
+            icon={
+              <MaterialCommunityIcons
+                name="music-rest-whole"
+                size={36}
+                color={lineColor}
+              />
+            }
+          />
+          <VehicleEventsCard
+            eventType={"Pothole Reported"}
+            date={"Mar 20, 2020, 13:27 am PST"}
+            price={0.215}
+            icon={
+              <MaterialCommunityIcons
+                name="music-rest-whole"
+                size={36}
+                color={lineColor}
+              />
+            }
+          />
         </Box>
 
         <MenuToggleButton drawerNavigation={navigation} />

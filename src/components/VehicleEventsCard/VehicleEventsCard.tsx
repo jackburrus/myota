@@ -19,6 +19,7 @@ export const VehicleEventsCard = (props: VehicleEventsCardProps) => {
       borderRadius={12}
       backgroundColor={"primaryLight"}
       flexDirection={"row"}
+      marginTop={"m"}
     >
       <Box flex={1} justifyContent={"center"} alignItems={"center"}>
         <Box
@@ -27,15 +28,30 @@ export const VehicleEventsCard = (props: VehicleEventsCardProps) => {
           backgroundColor={"primaryMid"}
           borderRadius={10}
           marginLeft={"s"}
+          justifyContent={"center"}
+          alignItems={"center"}
         >
-          <Text>Icon</Text>
+          {icon}
         </Box>
       </Box>
       <Box flex={2} justifyContent={"center"}>
-        <Text>Transaction</Text>
+        <Text variant="whiteText">{eventType}</Text>
+        <Text variant="title">{date}</Text>
       </Box>
       <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-        <Text>Price</Text>
+        {incoming ? (
+          <Text
+            color="successGreen"
+            fontSize={16}
+            fontFamily={"Hind_500Medium"}
+          >
+            +{price} i
+          </Text>
+        ) : (
+          <Text color="failureRed" fontSize={16} fontFamily={"Hind_500Medium"}>
+            -{price} i
+          </Text>
+        )}
       </Box>
     </Box>
   );
