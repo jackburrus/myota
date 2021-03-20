@@ -16,6 +16,8 @@ const palette = {
   primaryLight: "#25395F",
   accent: "#108CFF",
   lineColor: "#8699BB",
+  successGreen: "#57D087",
+  neutralYellow: "#FFC962",
 };
 
 const PrimaryTheme = createTheme({
@@ -25,6 +27,8 @@ const PrimaryTheme = createTheme({
     accent: palette.accent,
     lineColor: palette.lineColor,
     white: palette.white,
+    successGreen: palette.successGreen,
+    neutralYellow: palette.neutralYellow,
   },
   textVariants: {
     title: {

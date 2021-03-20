@@ -1,6 +1,6 @@
 import { createText } from "@shopify/restyle";
 
-import { Theme } from "./theme";
+import { Theme } from "./PrimaryTheme";
 
 const Text = createText<Theme>();
 

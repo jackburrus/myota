@@ -14,7 +14,7 @@ export const VehicleMap = (props: VehicleMapProps) => {
       style={{ width: device.width - 50, height: 200 }}
       provider={PROVIDER_GOOGLE}
       customMapStyle={CUSTOM_MAP}
-      onRegionChangeComplete={(res) => console.log(res)}
+      // onRegionChangeComplete={(res) => console.log(res)}
       initialRegion={{
         latitude: 34.537142608229715,
         latitudeDelta: 0.10544141398184337,
