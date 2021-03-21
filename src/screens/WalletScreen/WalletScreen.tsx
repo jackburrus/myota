@@ -1,9 +1,9 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
-import BottomSheet from "@gorhom/bottom-sheet";
+import BottomSheet, { useBottomSheet } from "@gorhom/bottom-sheet";
 
 import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
 import Box from "../../theme/Box";
@@ -15,13 +15,21 @@ import { device } from "../../constants";
 import { Theme } from "../../theme/PrimaryTheme";
 
 export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
+  const [receive, setReceive] = useState(false);
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  const handleReceive = () => bottomSheetRef.current?.snapTo(2);
+  const handleReceive = () => {
+    setReceive(true);
+    bottomSheetRef.current?.snapTo(2);
+  };
+  const handleSend = () => {
+    setReceive(false);
+    bottomSheetRef.current?.snapTo(2);
+  };
 
   // variables
-  const snapPoints = useMemo(() => ["0%", "25%", "50%"], []);
+  const snapPoints = useMemo(() => ["0%", "25%", "75%"], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index: number) => {
@@ -68,7 +76,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         />
         <TransactionButton
           title="Send"
-          handlePress={() => console.log("pressed send")}
+          handlePress={handleSend}
           icon={
             <Ionicons
               name="md-send"
@@ -81,13 +89,11 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
       </Box>
       <BottomSheet
         ref={bottomSheetRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
       >
-        <View>
-          <Text>Awesome 🎉</Text>
-        </View>
+        {receive ? <Text>Receive</Text> : <Text>Send</Text>}
       </BottomSheet>
     </Box>
   );
