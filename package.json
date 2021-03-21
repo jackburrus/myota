@@ -10,6 +10,7 @@
   "dependencies": {
     "@expo-google-fonts/hind": "^0.1.0",
     "@gorhom/bottom-sheet": "^2",
+    "@iota/core": "^1.0.0-beta.30",
     "@rainbow-me/animated-charts": "^1.0.0-alpha.5",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/drawer": "^5.12.4",
