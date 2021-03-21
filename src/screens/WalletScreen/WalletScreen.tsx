@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 
 import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
+import { IotaChart } from "../../components/IotaChart";
+import Rainbow from "../../components/Chart";
 
 export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   return (
@@ -15,7 +17,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         alignItems={"center"}
         backgroundColor="primaryDark"
       >
-        <Text>Wallet</Text>
+        <IotaChart />
         <MenuToggleButton drawerNavigation={navigation} />
       </Box>
     </CustomSafeAreaView>
