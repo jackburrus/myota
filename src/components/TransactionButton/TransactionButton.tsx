@@ -1,6 +1,7 @@
 import React from "react";
 
 import Box from "../../theme/Box";
+import { CustomPressable } from "../../theme/CustomPressable";
 import Text from "../../theme/Text";
 
 interface TransactionButtonProps {
@@ -9,9 +10,10 @@ interface TransactionButtonProps {
 }
 
 export const TransactionButton = (props: TransactionButtonProps) => {
-  const { title, icon } = props;
+  const { title, icon, handlePress } = props;
   return (
-    <Box
+    <CustomPressable
+      onPress={handlePress}
       borderWidth={0.5}
       borderRadius={8}
       width={150}
@@ -25,6 +27,6 @@ export const TransactionButton = (props: TransactionButtonProps) => {
     >
       {icon}
       <Text variant={"whiteText"}>{title}</Text>
-    </Box>
+    </CustomPressable>
   );
 };

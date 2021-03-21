@@ -50,23 +50,23 @@ const Header = ({ translation, index }: HeaderProps) => {
     const p = interpolate(
       translation.y.value,
       [0, SIZE],
-      [data.value.maxPrice, data.value.minPrice]
+      [data.maxPrice, data.minPrice]
     );
     return `$ ${round(p, 2).toLocaleString("en-US", { currency: "USD" })}`;
   });
   const percentChange = useDerivedValue(
-    () => `${round(data.value.percentChange, 3)}%`
+    () => `${round(data.percentChange, 3)}%`
   );
-  const label = useDerivedValue(() => data.value.label);
+  const label = useDerivedValue(() => data.label);
   const style = useAnimatedStyle(() => ({
     fontWeight: "500",
     fontSize: 24,
-    color: data.value.percentChange > 0 ? "green" : "red",
+    color: data.percentChange > 0 ? "green" : "red",
   }));
 
   return (
     <Box>
-      <Box marginLeft={"m"}>
+      <Box marginLeft={"m"} marginTop={"s"}>
         <Text variant={"whiteText"} fontSize={24}>
           Balance
         </Text>
@@ -77,10 +77,10 @@ const Header = ({ translation, index }: HeaderProps) => {
           <ReText style={[styles.value, { color: white }]} text={price} />
           {/* <Text style={styles.label}>Iota</Text> */}
         </Box>
-        <View>
+        {/* <View>
           <ReText style={style} text={percentChange} />
           <ReText style={styles.label} text={label} />
-        </View>
+        </View> */}
       </Box>
     </Box>
   );

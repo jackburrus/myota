@@ -27,6 +27,7 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
   const [milesState, setMilesState] = useState("All");
   return (
     <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}>
+      <MenuToggleButton drawerNavigation={navigation} />
       <Box
         justifyContent="center"
         alignItems="center"
@@ -147,8 +148,6 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
             />
           </CustomScrollView>
         </Box>
-
-        <MenuToggleButton drawerNavigation={navigation} />
       </Box>
     </CustomSafeAreaView>
   );

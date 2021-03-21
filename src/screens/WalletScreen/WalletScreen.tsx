@@ -16,15 +16,17 @@ import { Theme } from "../../theme/PrimaryTheme";
 
 export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   // ref
-  // const bottomSheetRef = useRef<BottomSheet>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
 
-  // // variables
-  // const snapPoints = useMemo(() => ["25%", "50%"], []);
+  const handleReceive = () => bottomSheetRef.current?.snapTo(2);
+
+  // variables
+  const snapPoints = useMemo(() => ["0%", "25%", "50%"], []);
 
   // callbacks
-  // const handleSheetChanges = useCallback((index: number) => {
-  //   console.log("handleSheetChanges", index);
-  // }, []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log("handleSheetChanges", index);
+  }, []);
   const theme = useTheme<Theme>();
   const {
     primaryLight,
@@ -54,6 +56,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
       >
         <TransactionButton
           title="Receive"
+          handlePress={handleReceive}
           icon={
             <MaterialIcons
               name="move-to-inbox"
@@ -65,6 +68,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         />
         <TransactionButton
           title="Send"
+          handlePress={() => console.log("pressed send")}
           icon={
             <Ionicons
               name="md-send"
@@ -75,7 +79,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
           }
         />
       </Box>
-      {/* <BottomSheet
+      <BottomSheet
         ref={bottomSheetRef}
         index={1}
         snapPoints={snapPoints}
@@ -84,7 +88,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         <View>
           <Text>Awesome 🎉</Text>
         </View>
-      </BottomSheet> */}
+      </BottomSheet>
     </Box>
   );
 };
