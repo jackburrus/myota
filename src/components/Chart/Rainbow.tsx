@@ -10,8 +10,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "transparent",
-    justifyContent: "space-between",
+    // justifyContent: "flex-start",
     width: device.width,
+
+    // borderWidth: 3,
   },
 });
 

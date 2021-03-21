@@ -132,7 +132,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
               <Feather name="video" size={20} color={lineColor} />
             </CustomPressable>
             <CustomPressable
-              onPress={() => console.log("pressing")}
+              // onPress={() => console.log("pressing")}
               height={35}
               width={35}
               backgroundColor={"primaryMid"}

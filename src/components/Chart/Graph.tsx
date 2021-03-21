@@ -9,7 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { mixPath, useVector } from "react-native-redash";
-import { useTheme } from "@shopify/restyle";
+import { backgroundColor, useTheme } from "@shopify/restyle";
 
 import { Theme } from "../../theme/PrimaryTheme";
 
@@ -24,7 +24,7 @@ const SELECTION_WIDTH = width - 32;
 const BUTTON_WIDTH = (width - 32) / graphs.length;
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     marginTop: 50,
     // borderWidth: 1,
     // backgroundColor: "white",
@@ -92,7 +92,13 @@ const Graph = () => {
       </View>
       <View style={styles.selection}>
         <View style={StyleSheet.absoluteFill}>
-          <Animated.View style={[styles.backgroundSelection, style]} />
+          <Animated.View
+            style={[
+              styles.backgroundSelection,
+              style,
+              { backgroundColor: primaryLight },
+            ]}
+          />
         </View>
         {graphs.map((graph, index) => {
           return (
