@@ -8,8 +8,9 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from "react-native-reanimated";
-import { getYForX, Vector } from "react-native-redash";
+import { clamp, getYForX, Vector } from "react-native-redash";
 
+import { device } from "../../constants";
 import { Theme } from "../../theme/PrimaryTheme";
 
 import { GraphIndex, graphs } from "./Model";
@@ -53,7 +54,7 @@ const Cursor = ({ index, translation }: CursorProps) => {
       isActive.value = true;
     },
     onActive: (event) => {
-      translation.x.value = event.x;
+      translation.x.value = clamp(event.x, 0, device.width - 50);
       translation.y.value = getYForX(
         graphs[index.value].data.path,
         translation.x.value
