@@ -13,6 +13,8 @@ import Rainbow from "../../components/Chart";
 import { TransactionButton } from "../../components/TransactionButton";
 import { device } from "../../constants";
 import { Theme } from "../../theme/PrimaryTheme";
+import { ImageBox } from "../../theme/ImageBox";
+import { SendForm } from "../../components/SendForm";
 
 export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   const [receive, setReceive] = useState(false);
@@ -21,15 +23,15 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
 
   const handleReceive = () => {
     setReceive(true);
-    bottomSheetRef.current?.snapTo(2);
+    bottomSheetRef.current?.snapTo(1);
   };
   const handleSend = () => {
     setReceive(false);
-    bottomSheetRef.current?.snapTo(2);
+    bottomSheetRef.current?.snapTo(1);
   };
 
   // variables
-  const snapPoints = useMemo(() => ["0%", "25%", "75%"], []);
+  const snapPoints = useMemo(() => ["0%", "75%"], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index: number) => {
@@ -93,7 +95,17 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
       >
-        {receive ? <Text>Receive</Text> : <Text>Send</Text>}
+        {receive ? (
+          <Box flex={1} justifyContent={"center"} alignItems={"center"}>
+            <ImageBox
+              source={require("../../assets/QR.png")}
+              width={300}
+              height={300}
+            />
+          </Box>
+        ) : (
+          <SendForm />
+        )}
       </BottomSheet>
     </Box>
   );
