@@ -45,7 +45,7 @@ const PrimaryTheme = createTheme({
       fontFamily: "Hind_600SemiBold",
       fontSize: 16,
       color: "white",
-      height: 20,
+      // height: 20,
     },
   },
   spacing: {
