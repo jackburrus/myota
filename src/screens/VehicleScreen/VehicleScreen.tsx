@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { Text } from "react-native";
-
+import { Feather } from "@expo/vector-icons";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import { Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { VehicleMap } from "../../components";
 import Battery from "../../components/Battery/Battery";
@@ -16,6 +17,7 @@ import Text from "../../theme/Text";
 import { Theme } from "../../theme/PrimaryTheme";
 import { CurrentRideCard } from "../../components/CurrentRideCard";
 import { VehicleEventsCard } from "../../components/VehicleEventsCard";
+import { CustomScrollView } from "../../theme/CustomScrollView";
 
 interface VehicleScreenProps {}
 
@@ -116,44 +118,34 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
         />
         <Box flex={1} width={device.width - 50}>
           <Text variant={"whiteText"}>Vehicle Events</Text>
-          <VehicleEventsCard
-            eventType={"Pothole Reported"}
-            date={"Mar 20, 2020, 13:27 am PST"}
-            price={0.215}
-            incoming
-            icon={
-              <MaterialCommunityIcons
-                name="music-rest-whole"
-                size={36}
-                color={lineColor}
-              />
-            }
-          />
-          <VehicleEventsCard
-            eventType={"Pothole Reported"}
-            date={"Mar 20, 2020, 13:27 am PST"}
-            price={0.215}
-            incoming
-            icon={
-              <MaterialCommunityIcons
-                name="music-rest-whole"
-                size={36}
-                color={lineColor}
-              />
-            }
-          />
-          <VehicleEventsCard
-            eventType={"Pothole Reported"}
-            date={"Mar 20, 2020, 13:27 am PST"}
-            price={0.215}
-            icon={
-              <MaterialCommunityIcons
-                name="music-rest-whole"
-                size={36}
-                color={lineColor}
-              />
-            }
-          />
+          <CustomScrollView showsVerticalScrollIndicator={false}>
+            <VehicleEventsCard
+              eventType={"Pothole Reported"}
+              date={"Mar 20, 2020, 13:27 am PST"}
+              price={0.215}
+              incoming
+              icon={
+                <MaterialCommunityIcons
+                  name="music-rest-whole"
+                  size={36}
+                  color={lineColor}
+                />
+              }
+            />
+            <VehicleEventsCard
+              eventType={"Ride Completed"}
+              date={"Mar 20, 2020, 13:12 am PST"}
+              price={3.215}
+              incoming
+              icon={<Feather name="check" size={24} color={lineColor} />}
+            />
+            <VehicleEventsCard
+              eventType={"Parking Reserved"}
+              date={"Mar 20, 2020, 12:57 am PST"}
+              price={0.015}
+              icon={<Ionicons name="ios-car" size={24} color={lineColor} />}
+            />
+          </CustomScrollView>
         </Box>
 
         <MenuToggleButton drawerNavigation={navigation} />
