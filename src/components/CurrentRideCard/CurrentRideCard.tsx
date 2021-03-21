@@ -1,15 +1,17 @@
-import React from "react";
-import { ImageSourcePropType } from "react-native";
+import React, { useCallback, useState } from "react";
+import { Alert, ImageSourcePropType } from "react-native";
 import { Entypo, FontAwesome, Feather } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import { Rating } from "react-native-ratings";
 import { white } from "react-native-paper/lib/typescript/styles/colors";
+import YoutubePlayer from "react-native-youtube-iframe";
 
 import { device } from "../../constants";
 import Box from "../../theme/Box";
 import { ImageBox } from "../../theme/ImageBox";
 import Text from "../../theme/Text";
 import { Theme } from "../../theme/PrimaryTheme";
+import { CustomPressable } from "../../theme/CustomPressable";
 
 interface CurrentRideCardProps {
   riderAvatar: ImageSourcePropType;
@@ -21,6 +23,20 @@ interface CurrentRideCardProps {
 }
 
 export const CurrentRideCard = (props: CurrentRideCardProps) => {
+  const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state) => {
+    if (state === "ended") {
+      setPlaying(false);
+    }
+    if (state === "paused") {
+      setPlaying(false);
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
   const theme = useTheme<Theme>();
   const {
     primaryLight,
@@ -38,7 +54,18 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
     startingLocation,
     destination,
   } = props;
-  return (
+  return playing ? (
+    <Box marginBottom={"m"} marginTop={"m"}>
+      <YoutubePlayer
+        initialPlayerParams={{ start: 22 }}
+        height={220}
+        width={device.width - 50}
+        play={playing}
+        videoId={"a8Oi5mI-mXg"}
+        onChangeState={onStateChange}
+      />
+    </Box>
+  ) : (
     <Box
       // borderWidth={1}
       borderRadius={12}
@@ -57,6 +84,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
       <Box marginTop={"s"} padding={"s"}>
         <Text variant={"whiteText"}>Current Ride</Text>
       </Box>
+
       <Box padding={"s"} flexDirection={"row"} marginTop={"s"}>
         <ImageBox
           source={require("../../assets/person.jpg")}
@@ -92,7 +120,8 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
             // borderWidth={1}
             justifyContent={"flex-end"}
           >
-            <Box
+            <CustomPressable
+              onPress={togglePlaying}
               height={35}
               width={35}
               backgroundColor={"primaryMid"}
@@ -101,8 +130,9 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
               alignItems={"center"}
             >
               <Feather name="video" size={20} color={lineColor} />
-            </Box>
-            <Box
+            </CustomPressable>
+            <CustomPressable
+              onPress={() => console.log("pressing")}
               height={35}
               width={35}
               backgroundColor={"primaryMid"}
@@ -112,7 +142,7 @@ export const CurrentRideCard = (props: CurrentRideCardProps) => {
               marginLeft={"s"}
             >
               <Entypo name="cross" size={24} color={lineColor} />
-            </Box>
+            </CustomPressable>
           </Box>
         </Box>
       </Box>
