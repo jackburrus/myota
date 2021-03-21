@@ -89,14 +89,30 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
           }
         />
       </Box>
+
       <BottomSheet
         ref={bottomSheetRef}
         index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
+        backgroundComponent={() => (
+          <View
+            style={{
+              backgroundColor: primaryLight,
+              ...StyleSheet.absoluteFillObject,
+              borderTopLeftRadius: 10,
+              borderTopRightRadius: 10,
+            }}
+          />
+        )}
       >
         {receive ? (
-          <Box flex={1} justifyContent={"center"} alignItems={"center"}>
+          <Box
+            flex={1}
+            justifyContent={"center"}
+            alignItems={"center"}
+            backgroundColor={"failureRed"}
+          >
             <ImageBox
               source={require("../../assets/QR.png")}
               width={300}

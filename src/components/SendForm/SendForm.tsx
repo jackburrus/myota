@@ -12,22 +12,31 @@ export const SendForm = (props: SendFormProps) => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <Box flex={1} borderWidth={1}>
+    <Box flex={1}>
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
           <TextInput
-            // style={styles.input}
+            style={{
+              color: "grey",
+              borderWidth: 1,
+              height: 50,
+              marginLeft: 10,
+              marginRight: 10,
+              borderRadius: 5,
+            }}
             onBlur={onBlur}
             onChangeText={(value) => onChange(value)}
+            defaultValue={"Address"}
+            onFocus={() => onChange("")}
             value={value}
           />
         )}
-        name="firstName"
+        name="address"
         rules={{ required: true }}
-        defaultValue=""
+        defaultValue={true}
       />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      <Button title="Send" onPress={handleSubmit(onSubmit)} />
     </Box>
   );
 };
