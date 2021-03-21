@@ -11,9 +11,5 @@ import Rainbow from "../Chart";
 interface IotaChartProps {}
 
 export const IotaChart = (props: IotaChartProps) => {
-  return (
-    <View>
-      <Rainbow />
-    </View>
-  );
+  return <Rainbow />;
 };

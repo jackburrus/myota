@@ -35,22 +35,23 @@ interface HeaderProps {
 
 const Header = ({ translation, index }: HeaderProps) => {
   const data = useDerivedValue(() => graphs[index.value].data);
+
   const price = useDerivedValue(() => {
     const p = interpolate(
       translation.y.value,
       [0, SIZE],
-      [data.value.maxPrice, data.value.minPrice]
+      [data.maxPrice, data.minPrice]
     );
     return `$ ${round(p, 2).toLocaleString("en-US", { currency: "USD" })}`;
   });
   const percentChange = useDerivedValue(
-    () => `${round(data.value.percentChange, 3)}%`
+    () => `${round(data.percentChange, 3)}%`
   );
-  const label = useDerivedValue(() => data.value.label);
+  const label = useDerivedValue(() => data.label);
   const style = useAnimatedStyle(() => ({
     fontWeight: "500",
     fontSize: 24,
-    color: data.value.percentChange > 0 ? "green" : "red",
+    color: data.percentChange > 0 ? "green" : "red",
   }));
   return (
     <View style={styles.container}>
@@ -67,6 +68,7 @@ const Header = ({ translation, index }: HeaderProps) => {
       </View>
     </View>
   );
+  return null;
 };
 
 export default Header;

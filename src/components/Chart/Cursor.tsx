@@ -54,7 +54,7 @@ const Cursor = ({ index, translation }: CursorProps) => {
       isActive.value = true;
     },
     onActive: (event) => {
-      translation.x.value = clamp(event.x, 0, device.width - 50);
+      translation.x.value = clamp(event.x, 0, device.width - 1);
       translation.y.value = getYForX(
         graphs[index.value].data.path,
         translation.x.value

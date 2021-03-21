@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
+import { device } from "../../constants";
+
 import Graph from "./Graph";
 import Footer from "./components/Footer";
 
@@ -9,6 +11,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
     justifyContent: "space-between",
+    width: device.width,
   },
 });
 

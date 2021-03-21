@@ -10,7 +10,7 @@ import data from "./data.json";
 
 // export const SIZE = Dimensions.get("window").width;
 
-export const SIZE = device.width - 50;
+export const SIZE = device.width;
 
 interface Amount {
   amount: string;
