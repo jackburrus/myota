@@ -50,10 +50,10 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
         style,
         {
           position: "absolute",
-          zIndex: isDrawerOpen ? 1 : 0,
-          top: 0,
-          // width: device.width,
-
+          zIndex: 100,
+          top: Constants.statusBarHeight,
+          // marginBottom: 10,
+          // // width: device.width,
           left: 15,
         },
       ]}

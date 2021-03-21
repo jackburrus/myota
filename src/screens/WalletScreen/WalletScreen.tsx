@@ -42,13 +42,10 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
       backgroundColor="primaryDark"
       paddingTop={"xl"}
     >
-      {/* <Box > */}
       <MenuToggleButton drawerNavigation={navigation} />
-      {/* </Box> */}
-      {/* <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}> */}
+
       <IotaChart />
 
-      {/* </CustomSafeAreaView> */}
       <Box
         flex={0.3}
         flexDirection={"row"}
