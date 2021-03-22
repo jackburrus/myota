@@ -44,8 +44,10 @@ export const SendForm = (props: SendFormProps) => {
               paddingLeft: 10,
             }}
             // placeholderTextColor={"white"}
-            onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
+            // onBlur={onBlur}
+            onChange={(v) => {
+              onChange(v);
+            }}
             defaultValue={"Address"}
             onFocus={() => onChange("")}
             value={value}
@@ -53,7 +55,7 @@ export const SendForm = (props: SendFormProps) => {
         )}
         name="address"
         rules={{ required: true }}
-        defaultValue={true}
+        defaultValue={"Address"}
       />
       <Button title="Send" onPress={handleSubmit(onSubmit)} />
     </Box>

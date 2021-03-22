@@ -111,7 +111,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
             flex={1}
             justifyContent={"center"}
             alignItems={"center"}
-            backgroundColor={"failureRed"}
+            backgroundColor={"primaryLight"}
           >
             <ImageBox
               source={require("../../assets/QR.png")}
