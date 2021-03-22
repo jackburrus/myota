@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, TextInput } from "react-native";
 import { FAB } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { ReText } from "react-native-redash";
 import { useDerivedValue, useSharedValue } from "react-native-reanimated";
+import { useTheme } from "@shopify/restyle";
 
 import Box from "../../theme/Box";
 import Text from "../../theme/Text";
 import FlyIcon from "../FlyIcon/FlyIcon";
+import { Theme } from "../../theme/PrimaryTheme";
+import { CustomPressable } from "../../theme/CustomPressable";
 
 import { Ticker } from "./Ticker";
 
@@ -19,6 +22,16 @@ interface SendFormProps {}
 export const SendForm = (props: SendFormProps) => {
   const { control, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
+  const [activeIotaType, setActiveIotaType] = useState("i");
+  const theme = useTheme<Theme>();
+  const {
+    primaryLight,
+    lineColor,
+    accent,
+    successGreen,
+    neutralYellow,
+    white,
+  } = theme.colors;
 
   const iota = useSharedValue(0);
   const formattedValue = useDerivedValue(() =>
@@ -102,14 +115,51 @@ export const SendForm = (props: SendFormProps) => {
         paddingTop={"xl"}
         alignItems="center"
       >
-        <ReText
-          text={formattedValue}
-          style={{
-            color: "white",
-            fontFamily: "Hind_400Regular",
-            fontSize: 100,
-          }}
-        />
+        <Box flexDirection={"row"} alignItems={"center"}>
+          <ReText
+            text={formattedValue}
+            style={{
+              color: "white",
+              fontFamily: "Hind_400Regular",
+              fontSize: 100,
+
+              //   left: 40,
+              //   alignItems: "flex-end",
+            }}
+          />
+          <Box
+            flexDirection={"row"}
+            position="absolute"
+            bottom={40}
+            left={60}
+            zIndex={1}
+          >
+            <CustomPressable onPress={() => setActiveIotaType("i")}>
+              <Text
+                padding={"s"}
+                color={activeIotaType == "i" ? "white" : "lineColor"}
+              >
+                i
+              </Text>
+            </CustomPressable>
+            <CustomPressable onPress={() => setActiveIotaType("Mi")}>
+              <Text
+                padding={"s"}
+                color={activeIotaType == "Mi" ? "white" : "lineColor"}
+              >
+                Mi
+              </Text>
+            </CustomPressable>
+            <CustomPressable onPress={() => setActiveIotaType("Gi")}>
+              <Text
+                padding={"s"}
+                color={activeIotaType == "Gi" ? "white" : "lineColor"}
+              >
+                Gi
+              </Text>
+            </CustomPressable>
+          </Box>
+        </Box>
         <Ticker />
       </Box>
     </Box>
