@@ -111,6 +111,7 @@ export const SendForm = (props: SendFormProps) => {
               height: 50,
               marginLeft: 10,
               marginRight: 10,
+              marginBottom: 20,
               borderRadius: 5,
               paddingLeft: 10,
             }}
@@ -134,7 +135,7 @@ export const SendForm = (props: SendFormProps) => {
           justifyContent: "center",
           alignItems: "center",
           position: "absolute",
-          top: 60,
+          top: 65,
           right: 30,
           zIndex: 100,
         }}
@@ -177,7 +178,7 @@ export const SendForm = (props: SendFormProps) => {
             flexDirection={"row"}
             position="absolute"
             bottom={40}
-            right={40}
+            right={30}
             // left={60}
             // zIndex={1}
           >
