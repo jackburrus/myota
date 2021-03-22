@@ -57,7 +57,7 @@ export const SendForm = (props: SendFormProps) => {
       if (activeIotaType === "i") {
         const num = event.contentOffset.x / 45;
         // price.value = Math.round(num * 1e2) / 1e2;
-        price.value = +num.toFixed(2);
+        price.value = Math.abs(+num.toFixed(2));
       } else {
         price.value = Math.abs(Math.floor(event.contentOffset.x / 45));
       }
