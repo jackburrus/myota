@@ -31,7 +31,7 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   };
 
   // variables
-  const snapPoints = useMemo(() => ["0%", "75%"], []);
+  const snapPoints = useMemo(() => ["0%", "45%"], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index: number) => {
