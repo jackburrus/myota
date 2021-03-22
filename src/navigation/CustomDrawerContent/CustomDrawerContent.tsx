@@ -58,6 +58,16 @@ export const CustomDrawerContent = ({ navigation }) => {
         )}
         onPress={() => navigation.navigate("Vehicle")}
       />
+      <DrawerItem
+        label="Energy"
+        style={{
+          paddingLeft: 5,
+        }}
+        icon={({ focused, color, size }) => (
+          <SimpleLineIcons name="energy" size={20} color={accent} />
+        )}
+        onPress={() => navigation.navigate("Energy")}
+      />
     </DrawerContentScrollView>
   );
 };

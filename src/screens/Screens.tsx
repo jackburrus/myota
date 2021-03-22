@@ -9,6 +9,7 @@ import { CustomDrawerContent } from "../navigation/CustomDrawerContent";
 import Box from "../theme/Box";
 
 import { RouteTypes } from "./routeTypes";
+import { EnergyScreen } from "./EnergyScreen";
 
 import { WalletScreen, VehicleScreen } from "./index";
 
@@ -30,6 +31,7 @@ const Screens = () => {
       >
         <Drawer.Screen name="Wallet" component={WalletScreen} />
         <Drawer.Screen name="Vehicle" component={VehicleScreen} />
+        <Drawer.Screen name="Energy" component={EnergyScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
