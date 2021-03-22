@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, TextInput } from "react-native";
+import { FAB } from "react-native-paper";
+import { Ionicons } from "@expo/vector-icons";
+import { ReText } from "react-native-redash";
+import { useDerivedValue, useSharedValue } from "react-native-reanimated";
 
 import Box from "../../theme/Box";
 import Text from "../../theme/Text";
+import FlyIcon from "../FlyIcon/FlyIcon";
 
 const Iota = require("@iota/core");
 
@@ -12,6 +17,14 @@ interface SendFormProps {}
 export const SendForm = (props: SendFormProps) => {
   const { control, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  const iota = useSharedValue(0);
+  const formattedValue = useDerivedValue(() =>
+    `${iota.value}`.toLocaleString("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    })
+  );
 
   //   useEffect(() => {
   //     const iota = Iota.composeAPI({
@@ -43,8 +56,6 @@ export const SendForm = (props: SendFormProps) => {
               borderRadius: 5,
               paddingLeft: 10,
             }}
-            // placeholderTextColor={"white"}
-            // onBlur={onBlur}
             onChange={(v) => {
               onChange(v);
             }}
@@ -57,7 +68,46 @@ export const SendForm = (props: SendFormProps) => {
         rules={{ required: true }}
         defaultValue={"Address"}
       />
-      <Button title="Send" onPress={handleSubmit(onSubmit)} />
+
+      <FAB
+        animated={false}
+        style={{
+          backgroundColor: "#25395F",
+          width: 50,
+          height: 50,
+          justifyContent: "center",
+          alignItems: "center",
+          position: "absolute",
+          top: 60,
+          right: 30,
+          zIndex: 100,
+        }}
+        small
+        icon={() => (
+          <Ionicons
+            name="ios-send"
+            size={24}
+            color="white"
+            style={{ transform: [{ rotate: "-90deg" }] }}
+          />
+        )}
+        onPress={handleSubmit(onSubmit)}
+      />
+      <Box
+        flex={1}
+        // borderWidth={1}
+        justifyContent={"center"}
+        alignItems="center"
+      >
+        <ReText
+          text={formattedValue}
+          style={{
+            color: "white",
+            fontFamily: "Hind_400Regular",
+            fontSize: 100,
+          }}
+        />
+      </Box>
     </Box>
   );
 };
