@@ -21,7 +21,13 @@ interface SendFormProps {}
 
 export const SendForm = (props: SendFormProps) => {
   const { control, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const transaction = {
+      address: data.address,
+      amount: iota.value,
+    };
+    console.log(transaction);
+  };
   const [activeIotaType, setActiveIotaType] = useState("i");
   const theme = useTheme<Theme>();
   const {
@@ -33,7 +39,7 @@ export const SendForm = (props: SendFormProps) => {
     white,
   } = theme.colors;
 
-  const iota = useSharedValue(0);
+  const iota = useSharedValue(5);
   const formattedValue = useDerivedValue(() =>
     `${iota.value}`.toLocaleString("de-DE", {
       style: "currency",
@@ -65,15 +71,14 @@ export const SendForm = (props: SendFormProps) => {
               color: "white",
               fontFamily: "Hind_400Regular",
               borderWidth: 1,
+              borderColor: "white",
               height: 50,
               marginLeft: 10,
               marginRight: 10,
               borderRadius: 5,
               paddingLeft: 10,
             }}
-            onChange={(v) => {
-              onChange(v);
-            }}
+            onChangeText={(value) => onChange(value)}
             defaultValue={"Address"}
             onFocus={() => onChange("")}
             value={value}
