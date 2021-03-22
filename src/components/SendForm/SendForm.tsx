@@ -10,6 +10,8 @@ import Box from "../../theme/Box";
 import Text from "../../theme/Text";
 import FlyIcon from "../FlyIcon/FlyIcon";
 
+import { Ticker } from "./Ticker";
+
 const Iota = require("@iota/core");
 
 interface SendFormProps {}
@@ -96,7 +98,8 @@ export const SendForm = (props: SendFormProps) => {
       <Box
         flex={1}
         // borderWidth={1}
-        justifyContent={"center"}
+        // justifyContent={"center"}
+        paddingTop={"xl"}
         alignItems="center"
       >
         <ReText
@@ -107,6 +110,7 @@ export const SendForm = (props: SendFormProps) => {
             fontSize: 100,
           }}
         />
+        <Ticker />
       </Box>
     </Box>
   );
