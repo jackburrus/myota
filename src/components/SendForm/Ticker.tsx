@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Animated, {
   runOnJS,
@@ -10,34 +10,11 @@ import Animated, {
 
 import { device } from "../../constants";
 
+import { PriceContext } from "./SendForm";
+
 interface TickerProps {}
 
-const l = [...Array(60)];
-
 export const Ticker = (props: TickerProps) => {
-  const time = useSharedValue(0);
-  const transY = useSharedValue(0);
-  const transX = useSharedValue(0);
-  const isScrolling = useSharedValue(false);
-  const [timer, setTimer] = useState(1);
-
-  const scrollHandler = useAnimatedScrollHandler({
-    onScroll: (event) => {
-      time.value = Math.abs(Math.floor(event.contentOffset.x / 45));
-      runOnJS(setTimer)(time.value);
-
-      transX.value = event.contentOffset.x;
-
-      transY.value = event.contentOffset.y;
-    },
-    onBeginDrag: (e) => {
-      isScrolling.value = true;
-    },
-    onEndDrag: (e) => {
-      isScrolling.value = false;
-      //   runOnJS(fireHaptic)(e);
-    },
-  });
   return (
     <Animated.ScrollView
       showsHorizontalScrollIndicator={false}
@@ -58,11 +35,11 @@ export const Ticker = (props: TickerProps) => {
       {l.map((e, i) => {
         const stylez = useAnimatedStyle(() => {
           const size = () => {
-            if (i === time.value) {
+            if (i === price.value) {
               return 80;
-            } else if (i === time.value + 1) {
+            } else if (i === price.value + 1) {
               return 60;
-            } else if (i === time.value - 1) {
+            } else if (i === price.value - 1) {
               return 60;
             } else if (i === 0) {
               return 40;
