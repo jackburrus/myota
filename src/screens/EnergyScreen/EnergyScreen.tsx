@@ -20,7 +20,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
       <Box flex={1} justifyContent={"center"}>
         <Box
           flex={1}
-          borderWidth={1}
+          //   borderWidth={1}
           justifyContent={"center"}
           alignItems={"center"}
         >
@@ -79,10 +79,16 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               justifyContent={"center"}
               alignItems={"center"}
             >
-              <Text marginLeft={"l"} marginBottom={"s"} variant={"title"}>
+              <Text
+                marginLeft={"l"}
+                marginBottom={"s"}
+                variant={"title"}
+                fontSize={20}
+                style={{ height: 26 }}
+              >
                 Capacity
               </Text>
-              <Text marginLeft={"l"} variant={"whiteText"} fontSize={18}>
+              <Text marginLeft={"l"} variant={"whiteText"} fontSize={24}>
                 24 kW
               </Text>
             </Box>
@@ -93,10 +99,16 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               marginTop={"l"}
               // paddingRight={"l"}
             >
-              <Text marginRight={"l"} marginBottom={"s"} variant={"title"}>
+              <Text
+                marginRight={"l"}
+                marginBottom={"s"}
+                variant={"title"}
+                fontSize={20}
+                style={{ height: 26 }}
+              >
                 Total Yield
               </Text>
-              <Text marginRight={"l"} variant={"whiteText"} fontSize={18}>
+              <Text marginRight={"l"} variant={"whiteText"} fontSize={24}>
                 24 kW
               </Text>
             </Box>
@@ -112,10 +124,15 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               borderRightWidth={0.2}
               marginBottom={"l"}
             >
-              <Text marginBottom={"s"} variant={"title"}>
+              <Text
+                marginBottom={"s"}
+                variant={"title"}
+                fontSize={20}
+                style={{ height: 26 }}
+              >
                 Total Energy
               </Text>
-              <Text variant={"whiteText"} fontSize={18}>
+              <Text variant={"whiteText"} fontSize={24}>
                 25.7 kWh
               </Text>
             </Box>
@@ -127,10 +144,15 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               justifyContent={"center"}
               alignItems={"center"}
             >
-              <Text marginBottom={"s"} variant={"title"}>
+              <Text
+                marginBottom={"s"}
+                variant={"title"}
+                fontSize={20}
+                style={{ height: 26 }}
+              >
                 CO2 Reduction
               </Text>
-              <Text marginBottom={"l"} variant={"whiteText"} fontSize={18}>
+              <Text marginBottom={"l"} variant={"whiteText"} fontSize={24}>
                 18.9 ton
               </Text>
             </Box>
