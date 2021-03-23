@@ -6,6 +6,10 @@ import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import Text from "../../theme/Text";
+import { device } from "../../constants";
+import SolarPanels from "../../assets/SolarPanels";
+
+import EnergyCircle from "./EnergyCircle";
 
 interface EnergyScreenProps {}
 
@@ -20,18 +24,51 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
           justifyContent={"center"}
           alignItems={"center"}
         >
-          <Text>Summary</Text>
+          <EnergyCircle />
         </Box>
 
-        <Box
-          flex={1}
-          borderWidth={1}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Text>Daily</Text>
+        <Box flex={0.7} justifyContent={"flex-end"} alignItems={"center"}>
+          <Box
+            width={device.width - 50}
+            // borderWidth={1}
+            height={150}
+            borderRadius={12}
+            backgroundColor="primaryLight"
+            justifyContent={"center"}
+            alignItems={"center"}
+            flexDirection={"row"}
+          >
+            <Box flex={1} justifyContent={"center"} alignItems={"center"}>
+              <Text
+                variant={"whiteText"}
+                // style={{ borderWidth: 1 }}
+                fontSize={22}
+              >
+                Daily Revenue
+              </Text>
+              <Box flexDirection={"row"} alignItems={"flex-end"}>
+                <Text
+                  textAlign={"justify"}
+                  variant={"title"}
+                  fontSize={28}
+                  style={{ height: 32 }}
+                >
+                  18.03867
+                </Text>
+                <Text variant={"title"}>Miota</Text>
+              </Box>
+            </Box>
+            <Box
+              flex={1}
+              justifyContent={"center"}
+              alignItems={"center"}
+              paddingBottom={"m"}
+            >
+              <SolarPanels />
+            </Box>
+          </Box>
         </Box>
-        <Box flex={1}>
+        <Box flex={1.2}>
           <Box flexDirection={"row"} flex={1}>
             <Box
               flex={1}
