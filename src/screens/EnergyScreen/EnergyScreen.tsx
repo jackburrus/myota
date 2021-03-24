@@ -1,13 +1,11 @@
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Constants from "expo-constants";
 
+import SolarPanels from "../../assets/SolarPanels";
 import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
+import { device } from "../../constants";
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import Text from "../../theme/Text";
-import { device } from "../../constants";
-import SolarPanels from "../../assets/SolarPanels";
 
 import EnergyCircle from "./EnergyCircle";
 
@@ -18,19 +16,13 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
     <CustomSafeAreaView backgroundColor={"primaryDark"} flex={1}>
       <MenuToggleButton drawerNavigation={navigation} />
       <Box flex={1} justifyContent={"center"}>
-        <Box
-          flex={1}
-          //   borderWidth={1}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
+        <Box flex={1} justifyContent={"center"} alignItems={"center"}>
           <EnergyCircle />
         </Box>
 
         <Box flex={0.7} justifyContent={"flex-end"} alignItems={"center"}>
           <Box
             width={device.width - 50}
-            // borderWidth={1}
             height={150}
             borderRadius={12}
             backgroundColor="primaryLight"
@@ -39,11 +31,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
             flexDirection={"row"}
           >
             <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-              <Text
-                variant={"whiteText"}
-                // style={{ borderWidth: 1 }}
-                fontSize={22}
-              >
+              <Text variant={"whiteText"} fontSize={22}>
                 Daily Revenue
               </Text>
               <Box flexDirection={"row"} alignItems={"flex-end"}>
@@ -75,7 +63,6 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               borderRightWidth={0.2}
               borderColor={"lineColor"}
               marginTop={"l"}
-              // marginLeft={"l"}
               justifyContent={"center"}
               alignItems={"center"}
             >
@@ -97,7 +84,6 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
               justifyContent={"center"}
               alignItems={"center"}
               marginTop={"l"}
-              // paddingRight={"l"}
             >
               <Text
                 marginRight={"l"}

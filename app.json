@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "privacy": "unlisted",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/FireFlySplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -1,19 +1,14 @@
 import { DrawerScreenProps, useIsDrawerOpen } from "@react-navigation/drawer";
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
-import { FAB } from "react-native-paper";
 import Constants from "expo-constants";
-import { View as MotiView } from "moti";
+import React, { useEffect } from "react";
+import { FAB } from "react-native-paper";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
 
-import Box from "../../theme/Box";
 import FlyIcon from "../FlyIcon/FlyIcon";
-import { device } from "../../constants";
 
 interface MenuToggleButtonProps {
   drawerNavigation: DrawerScreenProps;
@@ -37,11 +32,6 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
     } else {
       scaleValue.value = withTiming(1);
     }
-    // if (isDrawerOpen) {
-    //   offSetX.value = withSpring(80);
-    // } else {
-    //   offSetX.value = withSpring(10);
-    // }
   }, [isDrawerOpen]);
 
   return (
@@ -52,8 +42,7 @@ const MenuToggleButton = (props: MenuToggleButtonProps) => {
           position: "absolute",
           zIndex: 100,
           top: Constants.statusBarHeight,
-          // marginBottom: 10,
-          // // width: device.width,
+
           left: 15,
         },
       ]}

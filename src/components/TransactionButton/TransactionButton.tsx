@@ -1,6 +1,5 @@
 import React from "react";
 
-import Box from "../../theme/Box";
 import { CustomPressable } from "../../theme/CustomPressable";
 import Text from "../../theme/Text";
 

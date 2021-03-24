@@ -10,10 +10,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "transparent",
-    // justifyContent: "flex-start",
-    width: device.width,
 
-    // borderWidth: 3,
+    width: device.width,
   },
 });
 
@@ -21,7 +19,6 @@ const IotaChart = () => {
   return (
     <View style={styles.container}>
       <Graph />
-      {/* <Footer /> */}
     </View>
   );
 };

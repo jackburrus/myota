@@ -1,45 +1,36 @@
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import BottomSheet from "@gorhom/bottom-sheet";
+import { DrawerScreenProps } from "@react-navigation/drawer";
+import { useTheme } from "@shopify/restyle";
+import Clipboard from "expo-clipboard";
+import { AnimatePresence, View as MotiView } from "moti";
 import React, {
   useCallback,
-  useEffect,
   useMemo,
   useReducer,
   useRef,
   useState,
 } from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
-import { DrawerScreenProps } from "@react-navigation/drawer";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { useTheme } from "@shopify/restyle";
-import BottomSheet, { useBottomSheet } from "@gorhom/bottom-sheet";
-import { MY_SECRET_SEED } from "@env";
-import Clipboard from "expo-clipboard";
-import { AnimatePresence, View as MotiView } from "moti";
+import { StyleSheet, View } from "react-native";
 
-import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
-import Box from "../../theme/Box";
-import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import { IotaChart } from "../../components/IotaChart";
-// import IotaChart from "../../components/Chart";
+import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
+import { SendForm } from "../../components/SendForm";
 import { TransactionButton } from "../../components/TransactionButton";
 import { device } from "../../constants";
-import { Theme } from "../../theme/PrimaryTheme";
-import { ImageBox } from "../../theme/ImageBox";
-import { SendForm } from "../../components/SendForm";
-import Text from "../../theme/Text";
+import Box from "../../theme/Box";
 import { CustomPressable } from "../../theme/CustomPressable";
+import { ImageBox } from "../../theme/ImageBox";
+import { Theme } from "../../theme/PrimaryTheme";
+import Text from "../../theme/Text";
 
-const Iota = require("@iota/core");
-
-const iota = Iota.composeAPI({
-  provider: "https://nodes.comnet.thetangle.org:443",
-});
 export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   const [receive, setReceive] = useState(false);
   const [copyVisible, toggleCopy] = useReducer((s) => !s, false);
   const [address, setAddress] = useState(
     "WXDTEUCUDFKYJUGIQJZKIDUVIWNTCZDBFOGIQZVQFNPYBQPWKI9HVL9V9ITMRS9OMAIBYAQXQOHFZWPP9"
   );
-  // ref
+
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const handleReceive = () => {
@@ -51,22 +42,6 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
     bottomSheetRef.current?.snapTo(1);
   };
 
-  // useEffect(() => {
-  //   iota
-  //     .getNewAddress(MY_SECRET_SEED, {
-  //       index: 0,
-  //       securityLevel: 2,
-  //       total: 1,
-  //     })
-  //     .then((adr) => {
-  //       setAddress(adr);
-  //       console.log("Your address is: " + adr);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   const snapPoints = useMemo(() => ["0%", "50%"], []);
 
   const handleSheetChanges = useCallback((index: number) => {
@@ -75,11 +50,8 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   const theme = useTheme<Theme>();
   const {
     primaryLight,
-    lineColor,
+
     accent,
-    successGreen,
-    neutralYellow,
-    white,
   } = theme.colors;
   return (
     <Box

@@ -40,14 +40,7 @@ interface CursorProps {
 
 const Cursor = ({ index, translation }: CursorProps) => {
   const theme = useTheme<Theme>();
-  const {
-    primaryLight,
-    lineColor,
-    accent,
-    successGreen,
-    neutralYellow,
-    white,
-  } = theme.colors;
+  const { accent } = theme.colors;
   const isActive = useSharedValue(false);
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: () => {

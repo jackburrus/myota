@@ -7,8 +7,6 @@ import Animated, {
 } from "react-native-reanimated";
 import Svg, { Path, Rect, Defs, LinearGradient, Stop } from "react-native-svg";
 
-import Text from "../../theme/Text";
-
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 function Battery(props) {

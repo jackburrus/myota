@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-// import { Text } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Feather,
+  Ionicons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
+import React, { useState } from "react";
 import { Pressable } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
 import { VehicleMap } from "../../components";
 import Battery from "../../components/Battery/Battery";
+import { CurrentRideCard } from "../../components/CurrentRideCard";
 import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
+import { VehicleEventsCard } from "../../components/VehicleEventsCard";
 import { device } from "../../constants";
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
-import Text from "../../theme/Text";
-import { Theme } from "../../theme/PrimaryTheme";
-import { CurrentRideCard } from "../../components/CurrentRideCard";
-import { VehicleEventsCard } from "../../components/VehicleEventsCard";
 import { CustomScrollView } from "../../theme/CustomScrollView";
+import { Theme } from "../../theme/PrimaryTheme";
+import Text from "../../theme/Text";
 
 interface VehicleScreenProps {}
 
@@ -39,7 +40,6 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
         </Box>
 
         <Box
-          // borderWidth={1}
           flex={0.3}
           width={device.width - 50}
           flexDirection={"row"}
@@ -47,16 +47,13 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
         >
           <Box
             flex={1}
-            // borderWidth={1}
             borderRadius={12}
             backgroundColor="primaryLight"
             height={75}
-            // justifyContent={"center"}
             paddingTop={"s"}
             paddingLeft={"s"}
             flexDirection={"row"}
             marginRight={"s"}
-            // alignItems={"center"}
             justifyContent={"space-around"}
           >
             <Box>
@@ -76,16 +73,12 @@ export const VehicleScreen = ({ navigation }: DrawerScreenProps) => {
           </Box>
           <Box
             flex={1}
-            // borderWidth={1}
             borderRadius={12}
             backgroundColor="primaryLight"
             height={75}
             marginLeft={"s"}
-            // justifyContent={"center"}
-            // paddingTop={"s"}
             paddingLeft={"s"}
             flexDirection={"row"}
-            // alignItems={"center"}
             justifyContent={"space-around"}
           >
             <Box paddingTop={"s"}>

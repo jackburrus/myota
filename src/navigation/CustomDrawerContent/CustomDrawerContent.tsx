@@ -1,17 +1,10 @@
-import {
-  DrawerContentScrollView,
-  DrawerItem,
-  DrawerItemList,
-} from "@react-navigation/drawer";
-import React from "react";
-import { View, Text, StyleSheet, Linking } from "react-native";
-import { Ionicons, SimpleLineIcons, FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5, SimpleLineIcons } from "@expo/vector-icons";
+import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { useTheme } from "@shopify/restyle";
+import React from "react";
 
-import { Theme } from "../../theme/PrimaryTheme";
-import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton";
-import Box from "../../theme/Box";
 import FlyIcon from "../../components/FlyIcon/FlyIcon";
+import { Theme } from "../../theme/PrimaryTheme";
 
 interface CustomDrawerContentProps {}
 
@@ -19,17 +12,7 @@ export const CustomDrawerContent = ({ navigation }) => {
   const theme = useTheme<Theme>();
   const { accent } = theme.colors;
   return (
-    <DrawerContentScrollView
-      //   style={{ paddingTop: 50 }}
-      contentContainerStyle={
-        {
-          // borderWidth: 1,
-          // justifyContent: "center",
-          // alignItems: "center",
-          // flex: 1,
-        }
-      }
-    >
+    <DrawerContentScrollView contentContainerStyle={{}}>
       <DrawerItem
         icon={({ focused, color, size }) => <FlyIcon />}
         onPress={() => navigation.toggleDrawer()}

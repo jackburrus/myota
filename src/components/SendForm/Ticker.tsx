@@ -1,16 +1,10 @@
-import React, { useContext, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
 import Animated, {
-  runOnJS,
-  useAnimatedScrollHandler,
   useAnimatedStyle,
-  useSharedValue,
   withSpring,
 } from "react-native-reanimated";
 
 import { device } from "../../constants";
-
-import { PriceContext } from "./SendForm";
 
 interface TickerProps {}
 
