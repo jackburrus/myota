@@ -1,1 +1,1 @@
-export { default } from "./Rainbow";
+export { default } from "./IotaChart";

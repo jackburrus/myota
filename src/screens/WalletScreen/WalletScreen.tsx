@@ -19,7 +19,7 @@ import MenuToggleButton from "../../components/MenuToggleButton/MenuToggleButton
 import Box from "../../theme/Box";
 import { CustomSafeAreaView } from "../../theme/CustomSafeAreaView";
 import { IotaChart } from "../../components/IotaChart";
-import Rainbow from "../../components/Chart";
+// import IotaChart from "../../components/Chart";
 import { TransactionButton } from "../../components/TransactionButton";
 import { device } from "../../constants";
 import { Theme } from "../../theme/PrimaryTheme";
@@ -67,10 +67,8 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
   //     });
   // }, []);
 
-  // variables
   const snapPoints = useMemo(() => ["0%", "50%"], []);
 
-  // callbacks
   const handleSheetChanges = useCallback((index: number) => {
     console.log("handleSheetChanges", index);
   }, []);
@@ -132,6 +130,19 @@ export const WalletScreen = ({ navigation }: DrawerScreenProps) => {
         index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
+        handleComponent={() => (
+          <Box style={{ alignSelf: "center", marginBottom: 10 }}>
+            <Box
+              style={{
+                width: 40,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "white",
+                marginTop: 9,
+              }}
+            />
+          </Box>
+        )}
         backgroundComponent={() => (
           <View
             style={{

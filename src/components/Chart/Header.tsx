@@ -50,18 +50,18 @@ const Header = ({ translation, index }: HeaderProps) => {
     const p = interpolate(
       translation.y.value,
       [0, SIZE],
-      [data.maxPrice, data.minPrice]
+      [data.value.maxPrice, data.value.minPrice]
     );
     return `$ ${round(p, 2).toLocaleString("en-US", { currency: "USD" })}`;
   });
   const percentChange = useDerivedValue(
-    () => `${round(data.percentChange, 3)}%`
+    () => `${round(data.value.percentChange, 3)}%`
   );
-  const label = useDerivedValue(() => data.label);
+  const label = useDerivedValue(() => data.value.label);
   const style = useAnimatedStyle(() => ({
     fontWeight: "500",
     fontSize: 24,
-    color: data.percentChange > 0 ? "green" : "red",
+    color: data.value.percentChange > 0 ? "green" : "red",
   }));
 
   return (

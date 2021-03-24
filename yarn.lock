@@ -1164,6 +1164,11 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/hind/-/hind-0.1.0.tgz#977b4e7df978a4be6865052b7808992f47016b1f"
   integrity sha512-u5l9jaAyMGYSm8LHFkNmZ6LfrD01aTHsw5wGdAPd+PI7CG7f++a+aamA3b6aQrmeqdeqnEuKQxE64ooCL66nIQ==
 
+"@expo-google-fonts/oxygen@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/oxygen/-/oxygen-0.1.0.tgz#2da3ab320146181d2620a19806af909265bee10c"
+  integrity sha512-c48n6Dzh2QqPuv4pdE5VdjUjoPjgbL6RHyRgL35+JSGTkIwa1UuOl2FAghIb5dTVBt7VfhIzpa2OxOwiFctHiQ==
+
 "@expo/config-plugins@1.0.22":
   version "1.0.22"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-1.0.22.tgz#dc9cf458444d0aed100827d82a1c9e7df20c7991"

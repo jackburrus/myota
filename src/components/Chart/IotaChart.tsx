@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Rainbow = () => {
+const IotaChart = () => {
   return (
     <View style={styles.container}>
       <Graph />
@@ -26,4 +26,4 @@ const Rainbow = () => {
   );
 };
 
-export default Rainbow;
+export default IotaChart;

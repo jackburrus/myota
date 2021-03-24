@@ -19,7 +19,7 @@ const Screens = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName={"Energy"}
+        initialRouteName={"Wallet"}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         drawerStyle={{
           backgroundColor: "#25395F",

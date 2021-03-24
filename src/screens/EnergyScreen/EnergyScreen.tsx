@@ -89,7 +89,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
                 Capacity
               </Text>
               <Text marginLeft={"l"} variant={"whiteText"} fontSize={24}>
-                24 kW
+                21 kW
               </Text>
             </Box>
             <Box
@@ -109,7 +109,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
                 Total Yield
               </Text>
               <Text marginRight={"l"} variant={"whiteText"} fontSize={24}>
-                24 kW
+                21 kW
               </Text>
             </Box>
           </Box>
@@ -133,7 +133,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
                 Total Energy
               </Text>
               <Text variant={"whiteText"} fontSize={24}>
-                25.7 kWh
+                22.1 kWh
               </Text>
             </Box>
             <Box
@@ -153,7 +153,7 @@ export const EnergyScreen = ({ navigation }: EnergyScreenProps) => {
                 CO2 Reduction
               </Text>
               <Text marginBottom={"l"} variant={"whiteText"} fontSize={24}>
-                18.9 ton
+                14.2 ton
               </Text>
             </Box>
           </Box>
